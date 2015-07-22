@@ -1,4 +1,4 @@
-FROM sinso/phpfpm-flow:latest
+FROM sinso/phpfpm-flow:5.5
 MAINTAINER Aslam Idrisov <aslambek.idrisov1@swisscom.com>
 
 
