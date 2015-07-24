@@ -26,5 +26,11 @@ RUN \
 	npm install -g grunt-cli && \
 gem install compass && \
     npm install -g gulp && \
+    npm install -g bower && \
     npm install -g yo
 
+
+# install composer
+RUN \
+    curl -sS https://getcomposer.org/installer | php \
+    && mv composer.phar /usr/local/bin/composer
