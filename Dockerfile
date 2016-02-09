@@ -23,11 +23,11 @@ RUN apt-get update \
 
 # install our stuff
 RUN \
-	npm install -g grunt-cli && \
-gem install compass && \
-    npm install -g gulp && \
-    npm install -g bower && \
-    npm install -g yo
+	npm install -g grunt-cli \
+	&& gem install compass \
+	&& npm install -g gulp \
+	&& npm install -g bower \
+	&& npm install -g yo
 
 
 # install composer
