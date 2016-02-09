@@ -34,3 +34,11 @@ RUN \
 RUN \
     curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
+
+# install fontforge and ttfautohint for grunt-webfont
+RUN apt-get update \
+	&& apt-get install -y \
+		fontforge \
+		ttfautohint \
+	&& rm -r /var/lib/apt/lists/*
+
