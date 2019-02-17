@@ -1,10 +1,13 @@
-FROM sinso/phpfpm-flow:7.0
+FROM sinso/phpfpm-flow:7.1
 MAINTAINER Aslam Idrisov <aslambek.idrisov1@swisscom.com>
 
 # Install nodejs, npm and install latest version of nodejs 
 RUN apt-get update \
 	&& apt-get install -y \
+			gnupg2 \
 			 nodejs \
+	&& curl -sL https://deb.nodesource.com/setup_11.x | bash - \
+	&& apt-get install -y \
 	  	   	 npm \
 	&& rm -r /var/lib/apt/lists/* \
 	&& npm install -g n  \
@@ -13,7 +16,8 @@ RUN apt-get update \
 		
 
 # install rubygems for compass
-RUN apt-get install -y \
+RUN apt-get update \
+	&& apt-get install -y \
 			ruby-dev \
 		        rubygems \
 	&& rm -r /var/lib/apt/lists/*
@@ -34,7 +38,8 @@ RUN \
     && mv composer.phar /usr/local/bin/composer
 
 # install fontforge and ttfautohint for grunt-webfont
-RUN apt-get install -y \
+RUN apt-get update \
+	&& apt-get install -y \
 		fontforge \
 		ttfautohint \
 	&& rm -r /var/lib/apt/lists/*
